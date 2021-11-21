@@ -32,7 +32,10 @@
 
 using namespace std;
 
-// define guest data
+/**
+ * @brief Guest Objects hold ID, Money, Activity, Room Key
+ * 
+ */
 struct guest_data {
     int id;
     int money;
@@ -42,20 +45,27 @@ struct guest_data {
 
 // ---- Function Declaration section ----
 // guest thread and related functions
+
 void* guest(void* thread_info);
 void setSharedGuestInfo_In(guest_data guest);
 void setSharedGuestInfo_Out(guest_data guest);
 void waitEnterHotel(int guest_id);
 void guestExecuteHotelActivity(int guest_id, string activity);
 void postExitHotel(int guest_id);
+
 // checkin thread and related functions
+
 void* checkin(void* thread_info);
 void greetGuest(int guest_id);
 void checkAndAssignRoom();
-// chcekout thread and related functions
+
+// checkout thread and related functions
+
 void* checkout(void* thread_info);
 void checkGuestOut();
+
 // process thread and helper functions
+
 string getRandomActivity();
 void initializeAllSemaphores();
 void printHotelResults();
