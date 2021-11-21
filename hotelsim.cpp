@@ -75,7 +75,6 @@ sem_t rooms; // 3, max rooms
 sem_t talkCheckin; // 1, mutual exlusion talking to reservationist
 sem_t ordercheckin; // 0, event ordering - guest first
 sem_t roomAvail; // 0, event ordering - checkin first??
-sem_t hotelActivity; // 0, occurs after checkin
 sem_t talkCheckout; // 1, mut. ex. talk wit clerk
 sem_t orderCheckout; // 0, event order - guest first
 sem_t roomDesignation; // 1, mut. ex. to avoid concurrent clerk modification
@@ -349,7 +348,6 @@ void initializeAllSemaphores() {
     sem_init(&talkCheckin, 0, 1); // 1, mutual exlusion talking to reservationist
     sem_init(&ordercheckin, 0, 0); // 0, event ordering - guest first
     sem_init(&roomAvail, 0, 0); // 0, event ordering - checkin first??
-    sem_init(&hotelActivity, 0, 0); // 0, occurs after checkin
     sem_init(&talkCheckout, 0, 1); // 1, mut. ex. talk wit clerk
     sem_init(&orderCheckout, 0, 0); // 0, event order - guest first
     sem_init(&roomDesignation, 0, 1); // 1, mut. ex. to avoid concurrent clerk modification)
